@@ -1,0 +1,79 @@
+/* Naviox shared default theme. Applications can override --naviox-* variables. */
+.naviox-root {
+  --naviox-surface: #fafafb;
+  --naviox-text: #1f2227;
+  --naviox-muted: #74777e;
+  --naviox-border: #e4e5e8;
+  --naviox-active: #eceef2;
+  --naviox-shadow: 0 20px 80px rgb(17 24 39 / 18%);
+  color: var(--naviox-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+.naviox-root * { box-sizing: border-box; }
+.naviox-trigger {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 24px;
+  border: 1px solid var(--naviox-border); background: var(--naviox-surface);
+  border-radius: 999px; padding: 9px 12px 9px 15px; color: var(--naviox-text);
+  font: inherit; font-size: 13px; cursor: pointer;
+}
+.naviox-trigger:hover { border-color: #bfc2c8; }
+.naviox-kbd { display: inline-flex; align-items: center; white-space: nowrap; color: var(--naviox-muted); background: #eeeef0; border: 1px solid #e3e3e5; border-radius: 6px; font: 11px ui-monospace, SFMono-Regular, monospace; padding: 3px 5px; }
+.naviox-dialog {
+  position: fixed; inset: 0; overflow: visible; width: min(720px, calc(100% - 24px));
+  max-width: none; max-height: min(660px, calc(100dvh - 36px)); margin: auto; padding: 0;
+  border: 1px solid var(--naviox-border, #e4e5e8); border-radius: 20px;
+  background: var(--naviox-surface, #fafafb); color: var(--naviox-text, #1f2227);
+  box-shadow: var(--naviox-shadow, 0 20px 80px rgb(17 24 39 / 18%));
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+.naviox-dialog::backdrop { background: rgb(20 24 32 / 35%); backdrop-filter: blur(7px); }
+.naviox-shell { min-height: 390px; display: flex; flex-direction: column; }
+.naviox-search { height: 59px; border-bottom: 1px solid var(--naviox-border, #e4e5e8); padding: 0 16px; display: flex; align-items: center; gap: 12px; }
+.naviox-search-symbol { font-size: 26px; line-height: 1; color: var(--naviox-muted, #74777e); }
+.naviox-search input { min-width: 0; flex: 1; outline: none; border: none; background: transparent; color: inherit; font: inherit; font-size: 15px; }
+.naviox-search input::placeholder { color: var(--naviox-muted, #74777e); }
+.naviox-search input::-webkit-search-cancel-button { cursor: pointer; }
+.naviox-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.93fr); flex: 1; min-height: 0; }
+.naviox-list-area { padding: 15px 10px; min-width: 0; min-height: 0; }
+.naviox-caption { color: var(--naviox-muted, #74777e); font-size: 11px; letter-spacing: .02em; padding: 0 10px 8px; }
+.naviox-results { list-style: none; padding: 0; margin: 0; overflow-y: auto; max-height: min(460px, calc(100dvh - 190px)); scrollbar-width: thin; }
+.naviox-option { display: flex; align-items: center; min-height: 48px; justify-content: space-between; gap: 8px; cursor: pointer; padding: 9px 10px; border-radius: 10px; }
+.naviox-option.is-active { background: var(--naviox-active, #eceef2); }
+.naviox-option.is-disabled { cursor: not-allowed; opacity: .4; }
+.naviox-option-text { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.naviox-option-title { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.naviox-option-description { color: var(--naviox-muted, #74777e); font-size: 11px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.naviox-option-group { flex-shrink: 0; max-width: 92px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--naviox-muted, #74777e); font-size: 11px; }
+.naviox-empty { padding: 22px 10px; color: var(--naviox-muted, #74777e); font-size: 13px; }
+.naviox-preview { border-left: 1px solid var(--naviox-border, #e4e5e8); padding: 15px; min-width: 0; overflow-y: auto; }
+.naviox-preview-image { display: flex; align-items: center; justify-content: center; width: 100%; height: 180px; object-fit: cover; background: #f0f0f2; border: 1px solid var(--naviox-border, #e4e5e8); border-radius: 12px; }
+.naviox-preview-placeholder { font-size: 55px; font-weight: 300; color: #9ba0a9; }
+.naviox-preview-title { font-weight: 600; font-size: 14px; margin: 17px 0 6px; }
+.naviox-preview-description { font-size: 12px; line-height: 1.6; color: var(--naviox-muted, #74777e); margin: 0 0 14px; }
+.naviox-meta { border-top: 1px solid var(--naviox-border, #e4e5e8); display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; font-size: 11px; }
+.naviox-meta span:first-child { color: var(--naviox-muted, #74777e); }
+.naviox-meta span:last-child { overflow-wrap: anywhere; text-align: right; }
+.naviox-footer { border-top: 1px solid var(--naviox-border, #e4e5e8); display: flex; justify-content: space-between; gap: 10px; padding: 10px 15px; font-size: 10px; color: var(--naviox-muted, #74777e); }
+@media (max-width: 580px) {
+  .naviox-dialog { width: calc(100% - 20px); border-radius: 14px; }
+  .naviox-content { display: block; }
+  .naviox-preview { display: none; }
+  .naviox-list-area { padding: 12px 8px; }
+  .naviox-footer { font-size: 9px; }
+}
+@media (prefers-color-scheme: dark) {
+  .naviox-root { --naviox-surface: #1c1e23; --naviox-text: #f5f5f6; --naviox-muted: #a6a8ae; --naviox-border: #373a42; --naviox-active: #34363d; --naviox-shadow: 0 20px 80px rgb(0 0 0 / 45%); }
+  .naviox-kbd { color: #c2c4ca; background: #303238; border-color: #4a4e57; }
+  .naviox-preview-image { background: #292d34; }
+}
+@media (prefers-reduced-motion: reduce) { .naviox-dialog, .naviox-option { transition: none !important; } }
+
+/* M2 playground breadcrumb control (core publishes no CSS) */
+.naviox-back { background: transparent; border: 0; color: inherit; font: inherit; cursor: pointer; padding: 0 9px 0 0; }
+.naviox-back:hover { text-decoration: underline; }
+
+/* Vanilla demo-only controls, not shipped in the core npm package. */
+.naviox-bookmark { border:0; background:transparent; padding:4px 5px; color:var(--naviox-muted); font-size:16px; cursor:pointer; }
+.naviox-bookmark:hover, .naviox-bookmark:focus-visible { color:var(--naviox-text); }
+.naviox-load-more { display:block; margin:8px auto; border:1px solid var(--naviox-border); background:transparent; color:var(--naviox-muted); padding:7px 12px; border-radius:10px; cursor:pointer; font:inherit; font-size:11px; }
+.naviox-load-more[hidden] { display:none; }

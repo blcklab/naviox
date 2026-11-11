@@ -1,0 +1,19 @@
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+*.tgz
+
+# Private maintainer documentation
+.internal/
+
+# Local files
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+# Browser test output
+playwright-report/
+test-results/

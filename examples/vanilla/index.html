@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Naviox — Vanilla JS playground</title>
+    <link rel="stylesheet" href="./naviox.css" />
+    <style>
+      body { margin: 0; background: #f1f1f2; color: #252629; font: 14px system-ui, sans-serif; }
+      .page { max-width: 1050px; margin: 0 auto; padding: 48px 28px; }
+      nav { display:flex; justify-content:space-between; align-items:center; }
+      nav strong { letter-spacing:.08em; font-size: 12px; }
+      main { margin-top: 110px; }
+      h1 { font-family: Georgia, serif; font-size:clamp(55px,9vw,100px); font-weight:400; letter-spacing:-.06em; line-height: .98; margin:0; }
+      p { color: #6c6c74; max-width:520px; line-height:1.7; }
+      .hint { margin-top:40px; padding-top:15px; border-top:1px solid #d8d8db; font-size:12px; }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <nav><strong>BLCK LAB / NAVIOX</strong><div class="naviox-root"><button id="trigger" class="naviox-trigger">Search the site <kbd class="naviox-kbd">⌘/Ctrl + K</kbd></button></div></nav>
+      <main><h1>Find anything.<br />Keep moving.</h1><p>A framework-agnostic command palette engine with independent Vue and React packages planned. This demo uses Vanilla JavaScript to showcase nested actions, async document search, pagination and favorites.</p><div class="hint">Press <strong>Ctrl+K</strong> or <strong>⌘K</strong> to open the live preview.</div></main>
+      <div class="naviox-root">
+        <dialog class="naviox-dialog" id="palette" aria-label="Search the site">
+          <div class="naviox-shell">
+            <div class="naviox-search"><span class="naviox-search-symbol" aria-hidden="true">⌕</span><input id="search" type="search" role="combobox" aria-label="Search the site" aria-expanded="true" aria-autocomplete="list" aria-controls="results" placeholder="Search pages, projects, and more..." /><kbd class="naviox-kbd">ESC</kbd></div>
+            <div class="naviox-content">
+              <div class="naviox-list-area"><div class="naviox-caption"><button id="back" type="button" class="naviox-back" hidden>← Back</button><span id="breadcrumb">BROWSE</span></div><ul id="results" class="naviox-results" role="listbox" aria-label="Search results"></ul><div id="empty" class="naviox-empty" hidden>No matches found</div><button id="load-more" class="naviox-load-more" type="button" hidden>Load more documents</button></div>
+              <aside class="naviox-preview" id="preview" aria-label="Selection preview"></aside>
+            </div>
+            <div class="naviox-footer"><span id="status" aria-live="polite"></span><span>↑ ↓ Navigate　↵ Run　☆ Favorite　Esc Back</span></div>
+          </div>
+        </dialog>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

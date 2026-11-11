@@ -1,0 +1,61 @@
+{
+  "name": "@blcklab/naviox",
+  "version": "0.1.0-alpha.7",
+  "description": "Headless command navigation with extensible workflows, remote providers and lightweight plugin lifecycle",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run typecheck && npm run typecheck:consumer && npm run build && npm run test && npm run docs:check && npm run verify:package",
+    "pack:dry": "npm pack --dry-run",
+    "typecheck:consumer": "tsc -p tsconfig.consumer.json",
+    "bench": "node benchmarks/search.mjs",
+    "bench:check": "node benchmarks/search.mjs --check",
+    "demo:extensions": "npm run build && node examples/vanilla/m7-extension-demo.mjs",
+    "verify:package": "node scripts/verify-package.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
+    "verify:lock": "node scripts/verify-lock.mjs"
+  },
+  "keywords": [
+    "command-palette",
+    "headless",
+    "command-menu",
+    "search",
+    "navigation",
+    "typescript",
+    "framework-agnostic"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blcklab/naviox.git"
+  },
+  "homepage": "https://github.com/blcklab/naviox#readme",
+  "bugs": {
+    "url": "https://github.com/blcklab/naviox/issues"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
